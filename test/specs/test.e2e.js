@@ -8,7 +8,7 @@ describe('My Login application', () => {
         console.log('URL:', await browser.getUrl())
 
         await LoginPage.login('standard_user', 'secret_sauce')
-    
+        await expect($('.title')).toHaveText('Products')
     })
 })
 
