@@ -8,6 +8,8 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
+    stanUser = 'standard_user'
+    uniPass = 'secret_sauce'
     get inputUsername () {
         return $('#user-name');
     }
