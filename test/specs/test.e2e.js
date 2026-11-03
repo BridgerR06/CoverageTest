@@ -4,12 +4,11 @@ import SecurePage from '../pageobjects/secure.page.js'
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
-        for (let i = 0; i < LoginPage.users.length; i++) {
-            const user = LoginPage.users[i]
+        for (const {username, password} of LoginPage.users) {
             await LoginPage.open()
             console.log('URL:', await browser.getUrl())
 
-            await LoginPage.login(user, LoginPage.uniPass)
+            await LoginPage.login(username, password)
             await expect($('.title')).toHaveText('Products')
         }
     })
