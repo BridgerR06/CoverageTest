@@ -8,8 +8,7 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-    stanUser = 'standard_user'
-    uniPass = 'secret_sauce'
+    users = ["Standard_User","Problem_User","Error_User", "Visual_User" ];
     get inputUsername () {
         return $('#user-name');
     }
