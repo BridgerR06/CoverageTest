@@ -8,7 +8,12 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-    users = [{username: "standard_user", password: "secret_sauce"}, {username: "problem_user", password: "secret_sauce"}, {username: "error_user", password: "secret_sauce"}, {username: "visual_user", password: "secret_sauce"}];
+    Credentials = {
+    username:["standard_user", "error_user", "problem_user", "visual_user"],
+    password: "secret_sauce"
+        //I ran a neg test with PW "secret_sauce123" and it failed as expected, so I know the correct PW is "secret_sauce
+    };
+
     get inputUsername () {
         return $('#user-name');
     }
