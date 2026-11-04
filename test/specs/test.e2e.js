@@ -1,6 +1,8 @@
 import { expect } from '@wdio/globals'
 import LoginPage from '../pageobjects/login.page.js'
 import SecurePage from '../pageobjects/secure.page.js'
+import ProductsPage from '../pageobjects/products.page.js'
+
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
@@ -11,5 +13,9 @@ describe('My Login application', () => {
             await LoginPage.login(username, LoginPage.Credentials.password)
             await expect($('.title')).toHaveText('Products')
         }
+        
+       
+       await ProductsPage.addToCart('redTShirt')
+        await expect(ProductsPage.cartBadge).toHaveText('1')
     })
 })
