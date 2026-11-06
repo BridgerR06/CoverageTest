@@ -9,7 +9,7 @@ describe('My Login application', () => {
         for (const username of LoginPage.Credentials.username) {
             await LoginPage.open()
             console.log('URL:', await browser.getUrl())
-
+            await browser.saveScreenshot('./screenshots/fileName.png')
             await LoginPage.login(username, LoginPage.Credentials.password)
             await expect($('.title')).toHaveText('Products')
         }
