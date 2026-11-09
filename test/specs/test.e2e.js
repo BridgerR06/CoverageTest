@@ -1,21 +1,25 @@
 import { expect } from '@wdio/globals'
-import LoginPage from '../pageobjects/login.page.js'
-import SecurePage from '../pageobjects/secure.page.js'
-import ProductsPage from '../pageobjects/products.page.js'
+import CoverageTestPage from '../pageobjects/coveragetest.page.js'
 
+describe('Sort Bar Coverage Test', () => {
+    it('Sort Bar should work as intended', async () => {
+        console.log('URL:', await browser.getUrl())
+        await CoverageTestPage.open();
+    });
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        for (const username of LoginPage.Credentials.username) {
-            await LoginPage.open()
-            console.log('URL:', await browser.getUrl())
-            await browser.saveScreenshot('./screenshots/fileName.png')
-            await LoginPage.login(username, LoginPage.Credentials.password)
-            await expect($('.title')).toHaveText('Products')
-        }
-        
-       
-       await ProductsPage.addToCart('redTShirt')
-        await expect(ProductsPage.cartBadge).toHaveText('1')
-    })
-})
+    it('TC01 - default sort is Featured', async () => {
+        await CoverageTestPage.TC01_defaultIsFeatured();
+    });
+
+    it('TC02 - menu has seven options in order', async () => {
+        await CoverageTestPage.TC02_menuHasSevenOptionsInOrder();
+    });
+
+    it('TC03 - clicking the control twice closes the menu', async () => {
+        await CoverageTestPage.TC03_clickTwiceClosesMenu();
+    });
+
+    it('TC04 - clicking elsewhere closes the menu', async () => {
+        await CoverageTestPage.TC04_clickElsewhereClosesMenu();
+    });
+});
