@@ -85,13 +85,13 @@ compareNames (a, b) { return a.toLowerCase().localeCompare(b.toLowerCase()); }
     expect(await this.getSortLabel()).toContain('Featured');
 }
 
-async TC02_menuHasSevenOptionsInOrder () {
+async TC01_menuHasSevenOptionsInOrder () {
     await this.openDept();
     await this.openMenu();
     const labels = await this.getOptionLabels();
     expect(labels).toEqual(Object.keys(SORT_OPTIONS));
 }
-  async TC03_clickTwiceClosesMenu () {
+  async TC02_clickTwiceClosesMenu () {
         await this.openDept();
         const labelBefore = await this.getSortLabel();
         await this.openMenu();
@@ -100,7 +100,7 @@ async TC02_menuHasSevenOptionsInOrder () {
         expect(await this.isMenuOpen()).toBe(false);
         expect(await this.getSortLabel()).toBe(labelBefore);
     }
-    async TC04_clickElsewhereClosesMenu () {
+    async TC03_clickElsewhereClosesMenu () {
         await this.openDept();
         const labelBefore = await this.getSortLabel();
         await this.openMenu();

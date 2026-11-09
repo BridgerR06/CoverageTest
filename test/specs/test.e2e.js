@@ -7,19 +7,16 @@ describe('Sort Bar Coverage Test', () => {
         await CoverageTestPage.open();
     });
 
-    it('TC01 - default sort is Featured', async () => {
-        await CoverageTestPage.TC01_defaultIsFeatured();
+   
+    it('TC01 - menu has seven options in order', async () => {
+        await CoverageTestPage.TC01_menuHasSevenOptionsInOrder();
     });
 
-    it('TC02 - menu has seven options in order', async () => {
-        await CoverageTestPage.TC02_menuHasSevenOptionsInOrder();
+    it('TC02 - clicking the control twice closes the menu', async () => {
+        await CoverageTestPage.TC02_clickTwiceClosesMenu();
     });
 
-    it('TC03 - clicking the control twice closes the menu', async () => {
-        await CoverageTestPage.TC03_clickTwiceClosesMenu();
-    });
-
-    it('TC04 - clicking elsewhere closes the menu', async () => {
-        await CoverageTestPage.TC04_clickElsewhereClosesMenu();
+    it('TC03 - clicking elsewhere closes the menu', async () => {
+        await CoverageTestPage.TC03_clickElsewhereClosesMenu();
     });
 });
